@@ -3,6 +3,8 @@ const cors = require('cors')
 require('dotenv').config()
 const connectionDB = require('./database/config')
 
+const port = process.env.PORT || 4000
+
 const app = express()
 
 connectionDB()
@@ -15,6 +17,6 @@ app.use('/api/auth', require('./routes/auth'))
 
 app.use('/api/events', require('./routes/calendar'))
 
-app.listen(process.env.PORT, () => {
-    console.log(`server on port ${process.env.PORT}`)
+app.listen( port , () => {
+    console.log(`server on port ${port}`)
 })
