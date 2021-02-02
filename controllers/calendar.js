@@ -6,8 +6,7 @@ const getEventsCalendar = async (req, res = response) => {
 
     try {
 
-        const events = await Event.find()
-            .populate('user', 'name')
+        const events = await Event.find().populate('user', 'name')
 
         res.json({
             ok: true,
@@ -122,7 +121,7 @@ const deleteEvent = async (req = request, res = response) => {
             })
         }
 
-        await Event.findByIdAndDelete( eventId )
+        await Event.findByIdAndDelete(eventId)
 
         res.json({
             ok: true,
